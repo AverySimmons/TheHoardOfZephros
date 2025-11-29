@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb7dpd3goopy5"]
+
+[ext_resource type="Script" uid="uid://dehougejhw4i2" path="res://01_Source/02_Levels/01_LevelClass/level_class.gd" id="1_ahg32"]
+[ext_resource type="PackedScene" uid="uid://cekuu2yjb7mmr" path="res://01_Source/04_Player/player.tscn" id="2_bto6s"]
+
+[node name="Level_" type="Node2D"]
+script = ExtResource("1_ahg32")
+metadata/_custom_type_script = "uid://dehougejhw4i2"
+
+[node name="TopRight" type="Marker2D" parent="."]
+
+[node name="BottomLeft" type="Marker2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_bto6s")]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwdk8q7yyxd4h"]
+
+[ext_resource type="Script" uid="uid://bgauyw7pfjjs4" path="res://01_Source/03_Mechanics/03_Box/box.gd" id="1_n66n4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7iyyd"]
+
+[node name="Box" type="CharacterBody2D"]
+script = ExtResource("1_n66n4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7iyyd")
