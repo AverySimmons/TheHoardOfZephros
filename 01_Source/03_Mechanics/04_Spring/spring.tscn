@@ -1,0 +1,357 @@
+[gd_scene load_steps=9 format=3 uid="uid://onnwruaum86m"]
+
+[ext_resource type="Script" uid="uid://bd5vcqhe0c02r" path="res://01_Source/03_Mechanics/04_Spring/spring.gd" id="1_0u651"]
+[ext_resource type="Texture2D" uid="uid://b1uua0vrjw31b" path="res://00_Assets/00_Tilesets/Whimsy_Hallow_Dungeon_Asset_Pack_V1.62.png" id="2_ko6tl"]
+[ext_resource type="Shader" uid="uid://d3g0vglfi480f" path="res://01_Source/03_Mechanics/04_Spring/percent_alpha.gdshader" id="2_s2pau"]
+[ext_resource type="AudioStream" uid="uid://beumrepnasyk8" path="res://00_Assets/02_SFX/spring_compress.mp3" id="4_vthwp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwpqb"]
+size = Vector2(293.5, 384)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vthwp"]
+shader = ExtResource("2_s2pau")
+shader_parameter/percent = 0.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ko6tl"]
+viewport_path = NodePath("CharacterBody2D/MoveSprite/SubViewport")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u651"]
+size = Vector2(293.5, 15)
+
+[node name="Spring" type="Node2D"]
+script = ExtResource("1_0u651")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(0, -192)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_fwpqb")
+
+[node name="MoveSprite" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vthwp")
+position = Vector2(0.5, 23)
+texture = SubResource("ViewportTexture_ko6tl")
+
+[node name="SubViewport" type="SubViewport" parent="CharacterBody2D/MoveSprite"]
+transparent_bg = true
+size = Vector2i(295, 430)
+
+[node name="Spring" type="Node2D" parent="CharacterBody2D/MoveSprite/SubViewport"]
+position = Vector2(147, 315)
+
+[node name="Background1" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-88, -218.00002)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 32, 31)
+
+[node name="Background2" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(9, -218.00002)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 32, 31)
+
+[node name="Background3" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(105.00001, -218.00002)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 24, 31)
+
+[node name="Background4" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-88, -125)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 32, 31)
+
+[node name="Background5" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(9, -125)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 32, 31)
+
+[node name="Background6" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(105.00001, -125)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 24, 31)
+
+[node name="Background7" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-88, -32)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 32, 31)
+
+[node name="Background8" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(9, -32)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 32, 31)
+
+[node name="Background9" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(105.00001, -32)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 24, 31)
+
+[node name="Background10" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-88, 61)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 32, 31)
+
+[node name="Background11" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(9, 61)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 32, 31)
+
+[node name="Background12" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(105, 61)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 24, 31)
+
+[node name="Background13" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-88, 154)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 32, 31)
+
+[node name="Background14" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(9, 154)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 32, 31)
+
+[node name="Background15" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(105, 154)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(768, 1008, 24, 31)
+
+[node name="Spring1" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-108, -218)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring2" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-36, -218)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring3" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(36, -218)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring4" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(108, -218)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring5" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-108, -98)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring6" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-36, -98)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring7" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(36, -98)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring8" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(108, -98)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring9" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-108, 21)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring10" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-36, 21)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring11" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(36, 21)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring12" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(108, 21)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring16" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-108, 140)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring13" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(-36, 140)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring14" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(36, 140)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Spring15" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Spring"]
+texture_filter = 1
+position = Vector2(108, 140)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1368, 584, 24, 40)
+
+[node name="Top" type="Node2D" parent="CharacterBody2D/MoveSprite/SubViewport"]
+position = Vector2(147, 315)
+
+[node name="Top1" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Top"]
+texture_filter = 1
+position = Vector2(-75, -285)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(912, 676, 50, 20)
+
+[node name="Top2" type="Sprite2D" parent="CharacterBody2D/MoveSprite/SubViewport/Top"]
+texture_filter = 1
+position = Vector2(75, -285)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(918, 676, 50, 20)
+
+[node name="WeightArea" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(0, -192)
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/WeightArea"]
+shape = SubResource("RectangleShape2D_0u651")
+
+[node name="LeftRay" type="RayCast2D" parent="."]
+position = Vector2(-154, -351)
+target_position = Vector2(0, -50)
+collision_mask = 6
+
+[node name="RightRay" type="RayCast2D" parent="."]
+position = Vector2(154, -351)
+target_position = Vector2(0, -50)
+collision_mask = 6
+
+[node name="BottomSprite" type="Node2D" parent="."]
+position = Vector2(0, 28.5)
+
+[node name="Bottom1" type="Sprite2D" parent="BottomSprite"]
+texture_filter = 1
+position = Vector2(-79.5, 0)
+scale = Vector2(3, -3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1577, 796, 53, 13)
+
+[node name="Bottom2" type="Sprite2D" parent="BottomSprite"]
+texture_filter = 1
+position = Vector2(79.5, 0)
+rotation = 3.1415927
+scale = Vector2(3, 3)
+texture = ExtResource("2_ko6tl")
+region_enabled = true
+region_rect = Rect2(1577, 796, 53, 13)
+
+[node name="Compress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vthwp")
+volume_db = 15.0
+pitch_scale = 0.35
+
+[node name="Decompress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vthwp")
+volume_db = 15.0
+pitch_scale = 0.5

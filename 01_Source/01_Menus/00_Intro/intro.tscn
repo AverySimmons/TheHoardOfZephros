@@ -1,3 +1,740 @@
-[gd_scene format=3 uid="uid://d0cse28evhml0"]
+[gd_scene load_steps=30 format=3 uid="uid://d0cse28evhml0"]
+
+[ext_resource type="Shader" uid="uid://dyqhhns4uwoe2" path="res://01_Source/01_Menus/00_Intro/pixelate.gdshader" id="1_2wbpl"]
+[ext_resource type="Shader" uid="uid://bsnm1jgd3q36d" path="res://01_Source/01_Menus/00_Intro/background.gdshader" id="1_6m67o"]
+[ext_resource type="Script" uid="uid://dwju7siuq4qgb" path="res://01_Source/01_Menus/00_Intro/intro.gd" id="1_qtkex"]
+[ext_resource type="FontFile" uid="uid://d1co3y6563stq" path="res://00_Assets/04_Fonts/times.ttf" id="2_6m67o"]
+[ext_resource type="Texture2D" uid="uid://dwank5o2wwvcd" path="res://00_Assets/01_Sprites/1.png" id="5_0d7xm"]
+[ext_resource type="FontFile" uid="uid://dg2ahd1qppg0o" path="res://00_Assets/04_Fonts/Darinia.ttf" id="6_bjoq8"]
+[ext_resource type="Texture2D" uid="uid://c6glkiwanc7tn" path="res://00_Assets/01_Sprites/2.png" id="6_lbchy"]
+[ext_resource type="Shader" uid="uid://c32haoi2sqfpg" path="res://01_Source/01_Menus/00_Intro/distort.gdshader" id="8_1vpac"]
+[ext_resource type="FontFile" uid="uid://boh57kchunixk" path="res://00_Assets/04_Fonts/BoldPixels.ttf" id="9_1vpac"]
+[ext_resource type="AudioStream" uid="uid://cqomute527pd5" path="res://00_Assets/02_SFX/menu_select.mp3" id="10_2io5w"]
+[ext_resource type="AudioStream" uid="uid://dqc82wdai7pk" path="res://00_Assets/02_SFX/menu_hover.mp3" id="11_ukba2"]
+
+[sub_resource type="Animation" id="Animation_0d7xm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0066666603, 0, 0.04, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FirstScene/TextAnimator:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FirstScene:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SecondScene:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:camera_speed")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SecondScene/Parallax2D3/Control/Title:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SecondScene/Parallax2D3/Control:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SecondScene/Parallax2D3/Distort:material:shader_parameter/distort_amount")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SecondScene/Parallax2D3/Title:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SecondScene/Parallax2D3/StartButton:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-247, 309)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SecondScene/Parallax2D3/SettingsButton:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1327, 410)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SecondScene/Parallax2D3/ExitButton:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-247, 506)]
+}
+
+[sub_resource type="Animation" id="Animation_74o3m"]
+resource_name = "intro"
+length = 35.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 6, 7, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 0.7, 1, 1, 1),
+"update": 0,
+"values": [Color(0.0066666603, 0, 0.04, 1), Color(0.0066666603, 0, 0.04, 1), Color(0.0066666603, 0, 0.04, 0), Color(0.0066666603, 0, 0.04, 0), Color(0.0066666603, 0, 0.04, 1), Color(0.0066666603, 0, 0.04, 1), Color(0.0066666603, 0, 0.04, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FirstScene/TextAnimator")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"text", -1, 1.0, false],
+"method": &"play"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FirstScene/TextAnimator:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 2.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FirstScene:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SecondScene:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:camera_speed")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 7.9, 8, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0, 0, 50, 140]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SecondScene/Parallax2D3/Control/Title:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(9.5, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SecondScene/Parallax2D3/Control:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(12.766666, 30.033333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1900)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SecondScene/Parallax2D3/Distort:material:shader_parameter/distort_amount")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(31.033333, 31.233334),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SecondScene/Parallax2D3/Title:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(31.233334, 31.333332, 31.433332, 31.533333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.2901961), Color(1, 1, 1, 0.6901961), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SecondScene/Parallax2D3/StartButton:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(32.033333, 32.333332),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-247, 384), Vector2(540, 384)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SecondScene/Parallax2D3/SettingsButton:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(32.033333, 32.333332),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(1327, 485), Vector2(540, 485)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SecondScene/Parallax2D3/ExitButton:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(32.033333, 32.333332),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-247, 581), Vector2(540, 581)]
+}
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(31),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_signal_music_swap"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bjoq8"]
+_data = {
+&"RESET": SubResource("Animation_0d7xm"),
+&"intro": SubResource("Animation_74o3m")
+}
+
+[sub_resource type="Animation" id="Animation_qtkex"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FirstScene/Pixelate:material:shader_parameter/pix_count")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [150.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FirstScene/Background:material:shader_parameter/layers")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+
+[sub_resource type="Animation" id="Animation_6m67o"]
+resource_name = "text"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FirstScene/Pixelate:material:shader_parameter/pix_count")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [75.0, 112.0, 150.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FirstScene/Background:material:shader_parameter/layers")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [40.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_74o3m"]
+_data = {
+&"RESET": SubResource("Animation_qtkex"),
+&"text": SubResource("Animation_6m67o")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_74o3m"]
+shader = ExtResource("1_6m67o")
+shader_parameter/layers = 100.0
+
+[sub_resource type="Gradient" id="Gradient_qvt5m"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6m67o"]
+gradient = SubResource("Gradient_qvt5m")
+width = 3
+height = 3
+
+[sub_resource type="Curve" id="Curve_6m67o"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5028901, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qtkex"]
+curve = SubResource("Curve_6m67o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qtkex"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(3, 1, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 100.0
+emission_ring_inner_radius = 80.0
+emission_ring_cone_angle = 90.0
+orbit_velocity_min = 1.0000001
+orbit_velocity_max = 1.0000001
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 24.999998
+radial_accel_max = 99.99999
+scale_min = 2.0
+scale_max = 2.0
+color = Color(1, 0.82, 0.27999997, 1)
+alpha_curve = SubResource("CurveTexture_qtkex")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtkex"]
+shader = ExtResource("1_2wbpl")
+shader_parameter/pix_count = 150.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lg5eh"]
+shader = ExtResource("8_1vpac")
+shader_parameter/pix_count = 75.0
+shader_parameter/distort_amount = 1.0
+
+[sub_resource type="Animation" id="Animation_lg5eh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0066666603, 0, 0.04, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1vpac"]
+resource_name = "exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(0.0066666603, 0, 0.04, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2io5w"]
+_data = {
+&"RESET": SubResource("Animation_lg5eh"),
+&"exit": SubResource("Animation_1vpac")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_40poo"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("11_ukba2")
 
 [node name="Intro" type="Node2D"]
+script = ExtResource("1_qtkex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bjoq8")
+}
+autoplay = "intro"
+
+[node name="FirstScene" type="Node2D" parent="."]
+
+[node name="TextAnimator" type="AnimationPlayer" parent="FirstScene"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_74o3m")
+}
+speed_scale = 2.0
+
+[node name="Background" type="ColorRect" parent="FirstScene"]
+material = SubResource("ShaderMaterial_74o3m")
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.048, 0, 0.09, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="FirstScene"]
+position = Vector2(641, 379)
+amount = 32
+texture = SubResource("GradientTexture2D_6m67o")
+lifetime = 3.0
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_qtkex")
+
+[node name="Group17" type="RichTextLabel" parent="FirstScene"]
+custom_minimum_size = Vector2(800, 250)
+offset_left = 240.0
+offset_top = 235.0
+offset_right = 1040.0
+offset_bottom = 485.0
+theme_override_colors/default_color = Color(0.17000002, 1, 0.6541666, 1)
+theme_override_colors/font_outline_color = Color(0.06999999, 0.35, 0.25666666, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.54963464, 0.30478084, 0.09803922)
+theme_override_constants/shadow_outline_size = 30
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 15
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("2_6m67o")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "Group 17"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pixelate" type="ColorRect" parent="FirstScene"]
+material = SubResource("ShaderMaterial_qtkex")
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="SecondScene" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="SecondScene"]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SecondScene/Parallax2D"]
+self_modulate = Color(0.3017467, 0.16959998, 0.53, 1)
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(2.23, 2.23)
+texture = ExtResource("5_0d7xm")
+
+[node name="Parallax2D2" type="Parallax2D" parent="SecondScene"]
+repeat_size = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SecondScene/Parallax2D2"]
+self_modulate = Color(0.39, 1, 0.5425, 1)
+position = Vector2(640, 360)
+scale = Vector2(2.23, 2.23)
+texture = ExtResource("6_lbchy")
+
+[node name="Parallax2D3" type="Parallax2D" parent="SecondScene"]
+scroll_scale = Vector2(0, 0)
+
+[node name="Distort" type="ColorRect" parent="SecondScene/Parallax2D3"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_lg5eh")
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Control" type="Control" parent="SecondScene/Parallax2D3"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 3000.0
+
+[node name="Title" type="RichTextLabel" parent="SecondScene/Parallax2D3/Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(700, 200)
+layout_mode = 0
+offset_left = 364.0
+offset_top = 197.0
+offset_right = 1064.0
+offset_bottom = 397.0001
+theme_override_colors/default_color = Color(1, 0.7166667, 0, 1)
+theme_override_colors/font_outline_color = Color(0.69, 0.32200003, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.43137255, 0, 0, 0.4)
+theme_override_constants/shadow_outline_size = 20
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("6_bjoq8")
+theme_override_font_sizes/normal_font_size = 84
+bbcode_enabled = true
+text = "[shake rate=10.0 level=10 connected=1]Long ago..."
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Paragraph1" type="RichTextLabel" parent="SecondScene/Parallax2D3/Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(800, 2000)
+layout_mode = 0
+offset_left = 231.0
+offset_top = 761.0
+offset_right = 1031.0
+offset_bottom = 2761.0
+theme_override_colors/default_color = Color(1, 0.90000004, 0, 1)
+theme_override_colors/font_outline_color = Color(0.8, 0.56, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.43137255, 0, 0, 0.4)
+theme_override_constants/shadow_outline_size = 10
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("9_1vpac")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "a wizard and his dragon, Zephyros, lived peacefully.
+
+
+
+
+For many years, Zephyros guarded a proud treasure hoard… until one day he discovered it was completely gone.
+
+
+
+
+The wizard knew he needed to take action.
+
+
+
+
+He searched tirelessly through his old dusty spellbooks until finally, he found it. An old transformation spell.
+
+
+
+
+With a quick incantation he had turned himself...
+
+
+
+
+Into a slime!
+
+
+
+
+Now it was time to take back..."
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Title" type="RichTextLabel" parent="SecondScene/Parallax2D3"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+custom_minimum_size = Vector2(800, 300)
+offset_left = 240.0
+offset_top = 21.0
+offset_right = 1040.0
+offset_bottom = 321.0
+theme_override_colors/default_color = Color(1, 0.87166667, 0.23000002, 1)
+theme_override_colors/font_outline_color = Color(0.69, 0.32200003, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.43, 0, 0, 0.4)
+theme_override_constants/shadow_outline_size = 20
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("6_bjoq8")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1]The Hoard of zephyros"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="SecondScene/Parallax2D3"]
+modulate = Color(1, 0.68333334, 0, 1)
+offset_left = -247.0
+offset_top = 309.0
+offset_right = -47.0
+offset_bottom = 374.0
+theme_override_fonts/font = ExtResource("6_bjoq8")
+theme_override_font_sizes/font_size = 28
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="SecondScene/Parallax2D3"]
+modulate = Color(1, 0.68333334, 0, 1)
+offset_left = 1327.0
+offset_top = 410.0
+offset_right = 1526.9998
+offset_bottom = 475.0
+theme_override_fonts/font = ExtResource("6_bjoq8")
+theme_override_font_sizes/font_size = 28
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="SecondScene/Parallax2D3"]
+modulate = Color(1, 0.68333334, 0, 1)
+offset_left = -247.0
+offset_top = 506.0
+offset_right = -47.0
+offset_bottom = 571.0
+theme_override_fonts/font = ExtResource("6_bjoq8")
+theme_override_font_sizes/font_size = 28
+text = "Exit"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="Fade" type="ColorRect" parent="Camera2D"]
+custom_minimum_size = Vector2(1280, 720)
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.0066666603, 0, 0.04, 0)
+
+[node name="ExitPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2io5w")
+}
+speed_scale = 2.0
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_2io5w")
+
+[node name="MenuHover" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_40poo")
+volume_db = 15.0

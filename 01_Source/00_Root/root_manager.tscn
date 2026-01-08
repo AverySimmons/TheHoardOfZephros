@@ -1,6 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://bto40bqrxenly"]
+[gd_scene load_steps=8 format=3 uid="uid://bto40bqrxenly"]
 
 [ext_resource type="Script" uid="uid://b66c384qfyi2j" path="res://01_Source/00_Root/root_manager.gd" id="1_str7d"]
+[ext_resource type="AudioStream" uid="uid://cebmpk4phmaof" path="res://00_Assets/03_Music/title_screen.wav" id="2_rrr6y"]
+[ext_resource type="AudioStream" uid="uid://daa0coivbboke" path="res://00_Assets/03_Music/area1.wav" id="3_3bkq5"]
+[ext_resource type="AudioStream" uid="uid://csmx63x3sbggr" path="res://00_Assets/03_Music/area2.wav" id="4_amlbl"]
+[ext_resource type="AudioStream" uid="uid://dqwwf30qmraei" path="res://00_Assets/03_Music/area3.wav" id="5_m4242"]
+[ext_resource type="AudioStream" uid="uid://yyldoxcxgsld" path="res://00_Assets/03_Music/intro.ogg" id="6_xkfjv"]
+[ext_resource type="AudioStream" uid="uid://drgyrrckqcnaf" path="res://00_Assets/03_Music/outro.wav" id="7_3bkq5"]
 
 [node name="RootManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_str7d")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rrr6y")
+volume_db = -10.0
+
+[node name="Area1Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3bkq5")
+volume_db = -10.0
+
+[node name="Area2Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_amlbl")
+volume_db = -10.0
+
+[node name="Area3Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_m4242")
+volume_db = -10.0
+
+[node name="IntroMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xkfjv")
+autoplay = true
+
+[node name="OutroMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3bkq5")
+volume_db = -5.0

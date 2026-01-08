@@ -1,6 +1,81 @@
-[gd_scene load_steps=2 format=3 uid="uid://cskr4rvs5n1g8"]
+[gd_scene load_steps=8 format=3 uid="uid://cskr4rvs5n1g8"]
 
 [ext_resource type="Script" uid="uid://bmfymmjrwpfhi" path="res://01_Source/01_Menus/03_Settings/settings.gd" id="1_4xx5u"]
+[ext_resource type="Shader" uid="uid://dyim65765rvvs" path="res://01_Source/01_Menus/03_Settings/settings.gdshader" id="2_rjjkq"]
+[ext_resource type="FontFile" uid="uid://dg2ahd1qppg0o" path="res://00_Assets/04_Fonts/Darinia.ttf" id="3_e4sdw"]
+[ext_resource type="Script" uid="uid://w7ncs0u7gnj" path="res://01_Source/01_Menus/03_Settings/volume_slider.gd" id="3_gug8i"]
 
-[node name="Settings" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gug8i"]
+shader = ExtResource("2_rjjkq")
+shader_parameter/animation = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_rjjkq"]
+font = ExtResource("3_e4sdw")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_e4sdw"]
+font = ExtResource("3_e4sdw")
+font_size = 24
+
+[node name="Settings" type="CanvasLayer"]
+layer = 3
 script = ExtResource("1_4xx5u")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_gug8i")
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Label" type="Label" parent="Control"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 0
+offset_left = 490.0
+offset_top = 133.0
+offset_right = 790.0
+offset_bottom = 283.0
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_rjjkq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Control"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 337.0
+offset_right = 840.0
+offset_bottom = 407.0
+max_value = 5.0
+step = 0.05
+script = ExtResource("3_gug8i")
+
+[node name="Label" type="Label" parent="Control/HSlider"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 0
+offset_left = 125.0
+offset_top = 38.0
+offset_right = 275.0
+offset_bottom = 113.0
+text = "Volume"
+label_settings = SubResource("LabelSettings_e4sdw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 0
+offset_left = 540.0
+offset_top = 542.0
+offset_right = 740.0
+offset_bottom = 617.0
+text = "Esc to exit"
+label_settings = SubResource("LabelSettings_e4sdw")
+horizontal_alignment = 1
+vertical_alignment = 1

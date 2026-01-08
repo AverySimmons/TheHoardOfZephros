@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctok83dhluv3w"]
+
+[ext_resource type="Texture2D" uid="uid://b1uua0vrjw31b" path="res://00_Assets/00_Tilesets/Whimsy_Hallow_Dungeon_Asset_Pack_V1.62.png" id="1_0v42d"]
+[ext_resource type="Script" uid="uid://dd57gc7dcluxk" path="res://01_Source/03_Mechanics/00_Door/door.gd" id="1_l3tiw"]
+[ext_resource type="AudioStream" uid="uid://gxetkaxw1eoy" path="res://00_Assets/02_SFX/door_open.mp3" id="3_mhvcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yyy1"]
+size = Vector2(110, 119)
+
+[node name="Door" type="Area2D"]
+modulate = Color(0.7, 0.96000004, 1, 1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_l3tiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_8yyy1")
+
+[node name="Open" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_0v42d")
+region_enabled = true
+region_rect = Rect2(1904, 2497, 64, 39)
+
+[node name="Closed" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_0v42d")
+region_enabled = true
+region_rect = Rect2(1904, 2544, 64, 40)
+
+[node name="Opened" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mhvcx")
+volume_db = -10.0

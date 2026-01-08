@@ -25,3 +25,7 @@ offset_top = 474.0
 offset_right = 740.0
 offset_bottom = 539.0
 text = "Exit"
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+
+[node name="Click" type="AudioStreamPlayer" parent="."]

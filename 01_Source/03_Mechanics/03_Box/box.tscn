@@ -1,11 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwdk8q7yyxd4h"]
+[gd_scene load_steps=6 format=3 uid="uid://cwdk8q7yyxd4h"]
 
 [ext_resource type="Script" uid="uid://bgauyw7pfjjs4" path="res://01_Source/03_Mechanics/03_Box/box.gd" id="1_n66n4"]
+[ext_resource type="Texture2D" uid="uid://b1uua0vrjw31b" path="res://00_Assets/00_Tilesets/Whimsy_Hallow_Dungeon_Asset_Pack_V1.62.png" id="2_7iyyd"]
+[ext_resource type="AudioStream" uid="uid://cpfwwi3foxdkw" path="res://00_Assets/02_SFX/pushing.mp3" id="3_d783p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7iyyd"]
+resource_local_to_scene = true
+size = Vector2(71.5, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n66n4"]
+resource_local_to_scene = true
+size = Vector2(1, 1)
 
 [node name="Box" type="CharacterBody2D"]
+collision_layer = 5
+platform_on_leave = 2
 script = ExtResource("1_n66n4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7iyyd")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_n66n4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_7iyyd")
+region_enabled = true
+
+[node name="Pushed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d783p")
+volume_db = -7.0

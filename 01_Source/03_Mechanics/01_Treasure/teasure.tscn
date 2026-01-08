@@ -1,0 +1,263 @@
+[gd_scene load_steps=17 format=3 uid="uid://dfj6284u8x8qv"]
+
+[ext_resource type="Script" uid="uid://dvmmn0p0qxl1h" path="res://01_Source/03_Mechanics/01_Treasure/teasure.gd" id="1_3cp0s"]
+[ext_resource type="Shader" uid="uid://d27hakq2mgnkd" path="res://01_Source/03_Mechanics/02_Potion/light.gdshader" id="2_0cr1r"]
+[ext_resource type="Texture2D" uid="uid://b1uua0vrjw31b" path="res://00_Assets/00_Tilesets/Whimsy_Hallow_Dungeon_Asset_Pack_V1.62.png" id="3_0cr1r"]
+[ext_resource type="AudioStream" uid="uid://7if2bxc7nu1" path="res://00_Assets/02_SFX/treasure.mp3" id="3_hgq57"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13gwd"]
+size = Vector2(48, 39)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ie4sy"]
+resource_local_to_scene = true
+shader = ExtResource("2_0cr1r")
+shader_parameter/pixel_count = 25.0
+shader_parameter/inner_color = Color(1, 0.9166666, 0, 1)
+shader_parameter/outer_color = Color(1, 0.53333336, 0, 1)
+shader_parameter/pulse_speed = 2.0
+shader_parameter/alpha = 0.5
+
+[sub_resource type="Gradient" id="Gradient_33rom"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_efemx"]
+gradient = SubResource("Gradient_33rom")
+width = 512
+height = 512
+
+[sub_resource type="Gradient" id="Gradient_qvt5m"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pqlr2"]
+gradient = SubResource("Gradient_qvt5m")
+width = 3
+height = 3
+
+[sub_resource type="Curve" id="Curve_hgq57"]
+_data = [Vector2(0.47727275, 0.9887641), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0cr1r"]
+curve = SubResource("Curve_hgq57")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ie4sy"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 115.0
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 800, 0)
+radial_accel_min = 99.99999
+radial_accel_max = 99.99999
+scale_min = 2.0
+scale_max = 2.0
+color = Color(1, 0.90000004, 0, 1)
+alpha_curve = SubResource("CurveTexture_0cr1r")
+
+[sub_resource type="Animation" id="Animation_efemx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OpenParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Collected:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Light:material:shader_parameter/alpha")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Closed:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Open:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_33rom"]
+resource_name = "open"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OpenParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.2),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Collected:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Light:material:shader_parameter/alpha")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Closed:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Open:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e5lwq"]
+_data = {
+&"RESET": SubResource("Animation_efemx"),
+&"open": SubResource("Animation_33rom")
+}
+
+[node name="Teasure" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3cp0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_13gwd")
+
+[node name="Light" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ie4sy")
+scale = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_efemx")
+
+[node name="Open" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(14.000008, -29)
+scale = Vector2(3, 3)
+texture = ExtResource("3_0cr1r")
+region_enabled = true
+region_rect = Rect2(920, 288, 40, 32)
+
+[node name="Closed" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(14.000008, -29)
+scale = Vector2(3, 3)
+texture = ExtResource("3_0cr1r")
+region_enabled = true
+region_rect = Rect2(1880, 288, 40, 32)
+
+[node name="OpenParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+texture = SubResource("GradientTexture2D_pqlr2")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_ie4sy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e5lwq")
+}
+
+[node name="Collected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hgq57")
+volume_db = 3.0
